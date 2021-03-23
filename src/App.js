@@ -1,5 +1,5 @@
-import React from "react";
-import Navigator from "./navigation/Navigator";
+import React from 'react';
+import Navigator from './navigation/Navigator';
 function App() {
   return <Navigator />;
 }

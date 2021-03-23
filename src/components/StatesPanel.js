@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 import {
   Paper,
   Table,
@@ -9,11 +9,11 @@ import {
   TableRow,
   Grid,
   TableBody,
-} from "@material-ui/core";
-import api from "../service/api";
-import { useHistory } from "react-router-dom";
-import Skeleton from "@material-ui/lab/Skeleton";
-import common from "../styles/common";
+} from '@material-ui/core';
+import api from '../service/api';
+import { useHistory } from 'react-router-dom';
+import Skeleton from '@material-ui/lab/Skeleton';
+import common from '../styles/common';
 
 const StatesPanel = () => {
   const [data, setData] = useState([]);
@@ -21,14 +21,14 @@ const StatesPanel = () => {
   const emptyState = () => {
     let array = [];
     for (let i = 0; i < 5; i++) {
-      array.push("");
+      array.push('');
     }
     return array;
   };
 
   useEffect(() => {
     const fetchStates = async () => {
-      const response = await api.get("/");
+      const response = await api.get('/');
       const { data } = response;
       setData(data);
       setLoaded(true);
@@ -40,7 +40,7 @@ const StatesPanel = () => {
   let history = useHistory();
 
   const handleClick = () => {
-    history.push("/brazil");
+    history.push('/brazil');
   };
 
   const classes = common();

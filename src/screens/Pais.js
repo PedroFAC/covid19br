@@ -1,8 +1,8 @@
-import React from "react";
-import { Container, Breadcrumbs, Typography, Grid } from "@material-ui/core";
-import { Link } from "react-router-dom";
-import common from "../styles/common";
-import { StatesPanelLarge, BrazilPanelLarge, SharePaper } from "../components";
+import React from 'react';
+import { Container, Breadcrumbs, Typography, Grid } from '@material-ui/core';
+import { Link } from 'react-router-dom';
+import common from '../styles/common';
+import { StatesPanelLarge, BrazilPanelLarge, SharePaper } from '../components';
 
 const Pais = () => {
   const classes = common();

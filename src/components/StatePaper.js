@@ -1,33 +1,33 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 import {
   Paper,
   Grid,
   Typography,
   CircularProgress,
   Icon,
-} from "@material-ui/core";
-import api from "../service/api";
-import { PieChart } from "react-minimal-pie-chart";
-import Skeleton from "@material-ui/lab/Skeleton";
-import common from "../styles/common";
-import dateParse from "../functions/dateParse";
+} from '@material-ui/core';
+import api from '../service/api';
+import { PieChart } from 'react-minimal-pie-chart';
+import Skeleton from '@material-ui/lab/Skeleton';
+import common from '../styles/common';
+import dateParse from '../functions/dateParse';
 
 const StatePaper = ({ uf }) => {
   const [data, setData] = useState([]);
   const [loaded, setLoaded] = useState(false);
   const pieData = [
     {
-      title: "Casos Ativos",
+      title: 'Casos Ativos',
       value: data.cases - (data.deaths + data.refuses + data.suspects),
-      color: "#1769AA",
+      color: '#1769AA',
     },
-    { title: "Óbitos", value: data.deaths, color: "#B23C17" },
+    { title: 'Óbitos', value: data.deaths, color: '#B23C17' },
   ];
   const date = dateParse(data.datetime);
   const classes = common();
   useEffect(() => {
     const fetchState = async () => {
-      const response = await api.get("/brazil/uf/" + uf);
+      const response = await api.get('/brazil/uf/' + uf);
       const { data } = response;
       setData(data);
       setLoaded(true);
@@ -119,7 +119,7 @@ const StatePaper = ({ uf }) => {
                   gutterBottom
                 >
                   {loaded ? (
-                    Math.round((data.deaths / data.cases) * 100) + "%"
+                    Math.round((data.deaths / data.cases) * 100) + '%'
                   ) : (
                     <Skeleton />
                   )}
@@ -132,8 +132,8 @@ const StatePaper = ({ uf }) => {
                     labelPosition={106}
                     label={({ dataEntry }) => dataEntry.title}
                     labelStyle={(index) => ({
-                      fontSize: "5px",
-                      fontFamily: "Roboto",
+                      fontSize: '5px',
+                      fontFamily: 'Roboto',
                     })}
                     center={[300, 50]}
                     viewBoxSize={[400, 100]}

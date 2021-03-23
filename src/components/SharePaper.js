@@ -1,5 +1,5 @@
-import React from "react";
-import { Grid, Typography } from "@material-ui/core";
+import React from 'react';
+import { Grid, Typography } from '@material-ui/core';
 import {
   FacebookShareButton,
   FacebookIcon,
@@ -7,12 +7,12 @@ import {
   TwitterIcon,
   WhatsappShareButton,
   WhatsappIcon,
-} from "react-share";
-import common from "../styles/common";
+} from 'react-share';
+import common from '../styles/common';
 
 const SharePaper = () => {
-  const url = "https://covid-19brazil.netlify.app/";
-  const title = "Informações sobre COVID-19 no Brasil ";
+  const url = 'https://covid-19brazil.netlify.app/';
+  const title = 'Informações sobre COVID-19 no Brasil ';
   const classes = common();
   return (
     <div>

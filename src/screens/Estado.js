@@ -1,8 +1,8 @@
-import React from "react";
-import { Container, Breadcrumbs, Typography } from "@material-ui/core";
-import { Link, useParams } from "react-router-dom";
-import common from "../styles/common";
-import { StatePaper, SharePaper } from "../components";
+import React from 'react';
+import { Container, Breadcrumbs, Typography } from '@material-ui/core';
+import { Link, useParams } from 'react-router-dom';
+import common from '../styles/common';
+import { StatePaper, SharePaper } from '../components';
 
 const Estado = () => {
   let { id } = useParams();

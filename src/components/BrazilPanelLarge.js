@@ -1,34 +1,34 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 import {
   Grid,
   Paper,
   Typography,
   CircularProgress,
   Icon,
-} from "@material-ui/core";
-import api from "../service/api";
-import { PieChart } from "react-minimal-pie-chart";
-import Skeleton from "@material-ui/lab/Skeleton";
-import common from "../styles/common";
-import dateParse from "../functions/dateParse";
+} from '@material-ui/core';
+import api from '../service/api';
+import { PieChart } from 'react-minimal-pie-chart';
+import Skeleton from '@material-ui/lab/Skeleton';
+import common from '../styles/common';
+import dateParse from '../functions/dateParse';
 
 const BrazilPanelLarge = () => {
   const [data, setData] = useState([]);
   const [loaded, setLoaded] = useState(false);
   const pieData = [
     {
-      title: "Casos Ativos",
+      title: 'Casos Ativos',
       value: data.confirmed - (data.deaths + data.recovered),
-      color: "#1769AA",
+      color: '#1769AA',
     },
-    { title: "Óbitos", value: data.deaths, color: "#B23C17" },
-    { title: "Casos Curados", value: data.recovered, color: "#4CAF50" },
+    { title: 'Óbitos', value: data.deaths, color: '#B23C17' },
+    { title: 'Casos Curados', value: data.recovered, color: '#4CAF50' },
   ];
   const classes = common();
   const date = dateParse(data.updated_at);
   useEffect(() => {
     const fetchCountry = async () => {
-      const response = await api.get("/brazil");
+      const response = await api.get('/brazil');
       const { data } = response.data;
       setData(data);
       setLoaded(true);
@@ -100,8 +100,8 @@ const BrazilPanelLarge = () => {
                 labelPosition={112}
                 label={({ dataEntry }) => dataEntry.title}
                 labelStyle={(index) => ({
-                  fontSize: "5px",
-                  fontFamily: "Roboto",
+                  fontSize: '5px',
+                  fontFamily: 'Roboto',
                 })}
                 viewBoxSize={[100, 100]}
                 radius={20}

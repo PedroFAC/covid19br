@@ -5,5 +5,5 @@ export default function dateParse(code) {
   var year = date.getFullYear().toString();
   var hours = date.getHours().toString();
   var minutes = date.getMinutes().toString();
-  return day + "/" + month + "/" + year + "," + hours + ":" + minutes;
+  return day + '/' + month + '/' + year + ',' + hours + ':' + minutes;
 }

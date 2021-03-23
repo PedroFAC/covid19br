@@ -1,12 +1,12 @@
-import React from "react";
-import { Container, Grid } from "@material-ui/core";
+import React from 'react';
+import { Container, Grid } from '@material-ui/core';
 import {
   BrazilPanel,
   CountriesPanel,
   StatesPanel,
   SharePaper,
-} from "../components";
-import common from "../styles/common";
+} from '../components';
+import common from '../styles/common';
 
 const Dashboard = () => {
   const classes = common();
