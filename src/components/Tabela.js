@@ -1,5 +1,5 @@
-import React from 'react';
-import MaterialTable from 'material-table';
+import React from "react";
+import MaterialTable from "material-table";
 
 const Tabela = (props) => {
   return (

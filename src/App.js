@@ -1,10 +1,7 @@
-import React from 'react';
-import './App.css';
-import Navigator from './navigation/Navigator'
+import React from "react";
+import Navigator from "./navigation/Navigator";
 function App() {
-  return (
-    <Navigator />
-  );
+  return <Navigator />;
 }
 
 export default App;
