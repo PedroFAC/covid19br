@@ -31,10 +31,9 @@ const StatePaper = ({ uf }) => {
       const { data } = response;
       setData(data);
       setLoaded(true);
-      console.log(data);
     };
     fetchState();
-  }, [data, uf]);
+  }, []);
   return (
     <div>
       <Paper elevation={3} className={classes.paper}>

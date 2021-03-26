@@ -16,7 +16,6 @@ const BrazilPanel = () => {
       const { data } = response.data;
       setData(data);
       setLoaded(true);
-      console.log(data);
     };
     fetchCountry();
   }, []);

@@ -48,10 +48,9 @@ const CountriesPanel = () => {
       const { data } = response.data;
       setData(data);
       setLoaded(true);
-      console.log(data);
     };
     fetchCountries();
-  }, [data]);
+  }, []);
 
   return (
     <div>

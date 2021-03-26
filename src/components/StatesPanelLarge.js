@@ -45,7 +45,6 @@ const StatesPanelLarge = () => {
       const { data } = response.data;
       setData(data);
       setLoaded(true);
-      console.log(data);
     };
     fetchStates();
   }, []);

@@ -32,7 +32,6 @@ const StatesPanel = () => {
       const { data } = response;
       setData(data);
       setLoaded(true);
-      console.log(data);
     };
     fetchStates();
   }, []);
