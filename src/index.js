@@ -2,6 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import { makeServer } from './service/mock';
+
+if (process.env.NODE_ENV === 'test') {
+  makeServer('test');
+}
 
 ReactDOM.render(
   <React.StrictMode>
