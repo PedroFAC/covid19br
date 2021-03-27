@@ -7,6 +7,7 @@ import StatePaper from './StatePaper';
 import StatesPanelLarge from './StatesPanelLarge';
 import Tabela from './Tabela';
 import TopBar from './TopBar';
+import VaccinationPanel from './VaccinationPanel';
 
 export {
   BrazilPanel,
@@ -18,4 +19,5 @@ export {
   StatesPanelLarge,
   Tabela,
   TopBar,
+  VaccinationPanel,
 };

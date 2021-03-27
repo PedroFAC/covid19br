@@ -26,10 +26,20 @@ export function makeServer({ environment = 'test' } = {}) {
       this.get('/brazil', {
         data: {
           country: 'Brazil',
-          cases: faker.random.number(),
-          confirmed: faker.random.number(),
-          deaths: faker.random.number(),
-          recovered: faker.random.number(),
+          cases: faker.datatype.number(),
+          confirmed: faker.datatype.number(),
+          deaths: faker.datatype.number(),
+          recovered: faker.datatype.number(),
+          updated_at: Date.now(),
+        },
+      });
+      this.get('/brazil/uf/CE', {
+        data: {
+          state: 'Ceará',
+          cases: faker.datatype.number(),
+          deaths: faker.datatype.number(),
+          suspects: faker.datatype.number(),
+          refuses: faker.datatype.number(),
           updated_at: Date.now(),
         },
       });

@@ -5,10 +5,10 @@ const mockCountries = Array(192)
   .map(() => {
     return {
       country: faker.address.country(),
-      cases: faker.random.number(),
-      confirmed: faker.random.number(),
-      deaths: faker.random.number(),
-      recovered: faker.random.number(),
+      cases: faker.datatype.number(),
+      confirmed: faker.datatype.number(),
+      deaths: faker.datatype.number(),
+      recovered: faker.datatype.number(),
     };
   });
 

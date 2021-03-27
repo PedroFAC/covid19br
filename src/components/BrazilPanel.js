@@ -23,7 +23,12 @@ const BrazilPanel = () => {
   return (
     <div>
       <Paper elevation={3} className={classes.paper}>
-        <Typography className={classes.header} variant="h6" gutterBottom>
+        <Typography
+          data-testid="brazil-panel-title"
+          className={classes.header}
+          variant="h6"
+          gutterBottom
+        >
           Brasil
         </Typography>
         <Grid
@@ -36,7 +41,11 @@ const BrazilPanel = () => {
           <Grid xs item container direction="column">
             <Grid item container>
               <Icon>done</Icon>
-              <Typography variant="overline" gutterBottom>
+              <Typography
+                data-testid="brazil-panel-cases"
+                variant="overline"
+                gutterBottom
+              >
                 Número de casos
               </Typography>
             </Grid>
@@ -49,7 +58,11 @@ const BrazilPanel = () => {
               <Grid xs item container direction="column">
                 <Grid item container>
                   <Icon>person_remove</Icon>
-                  <Typography variant="overline" gutterBottom>
+                  <Typography
+                    data-testid="brazil-panel-deaths"
+                    variant="overline"
+                    gutterBottom
+                  >
                     Óbitos Confirmados
                   </Typography>
                 </Grid>
@@ -64,7 +77,11 @@ const BrazilPanel = () => {
               <Grid xs item container direction="column">
                 <Grid container>
                   <Icon>healing</Icon>
-                  <Typography variant="overline" gutterBottom>
+                  <Typography
+                    data-testid="brazil-panel-recovered"
+                    variant="overline"
+                    gutterBottom
+                  >
                     Casos Curados
                   </Typography>
                 </Grid>

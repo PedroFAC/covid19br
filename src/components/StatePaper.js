@@ -37,7 +37,7 @@ const StatePaper = ({ uf }) => {
   return (
     <div>
       <Paper elevation={3} className={classes.paper}>
-        <Typography variant="h3">
+        <Typography data-testid="state-paper-title" variant="h3">
           {loaded ? data.state : <Skeleton />}
         </Typography>
         <Grid container direction="column">
@@ -45,7 +45,11 @@ const StatePaper = ({ uf }) => {
             <Grid xs container item direction="column">
               <Grid container item xs>
                 <Icon>done</Icon>
-                <Typography variant="overline" gutterBottom>
+                <Typography
+                  data-testid="state-paper-confirmed"
+                  variant="overline"
+                  gutterBottom
+                >
                   Casos Confirmados
                 </Typography>
               </Grid>
@@ -60,7 +64,11 @@ const StatePaper = ({ uf }) => {
             <Grid xs container item direction="column">
               <Grid container item>
                 <Icon>block</Icon>
-                <Typography variant="overline" gutterBottom>
+                <Typography
+                  data-testid="state-paper-suspects"
+                  variant="overline"
+                  gutterBottom
+                >
                   Casos não-confirmados
                 </Typography>
               </Grid>
@@ -75,7 +83,11 @@ const StatePaper = ({ uf }) => {
             <Grid xs container item direction="column">
               <Grid container item>
                 <Icon>call_split</Icon>
-                <Typography variant="overline" gutterBottom>
+                <Typography
+                  data-testid="state-paper-refuses"
+                  variant="overline"
+                  gutterBottom
+                >
                   Casos Reiterados
                 </Typography>
               </Grid>
@@ -90,7 +102,11 @@ const StatePaper = ({ uf }) => {
             <Grid xs container item direction="column">
               <Grid container item>
                 <Icon>person_remove</Icon>
-                <Typography variant="overline" gutterBottom>
+                <Typography
+                  data-testid="state-paper-deaths"
+                  variant="overline"
+                  gutterBottom
+                >
                   Óbitos Confirmados
                 </Typography>
               </Grid>
@@ -108,7 +124,11 @@ const StatePaper = ({ uf }) => {
               <Grid container item>
                 <Grid container item>
                   <Icon>pie_chart</Icon>
-                  <Typography variant="overline" gutterBottom>
+                  <Typography
+                    data-testid="state-paper-lethality"
+                    variant="overline"
+                    gutterBottom
+                  >
                     Letalidade
                   </Typography>
                 </Grid>

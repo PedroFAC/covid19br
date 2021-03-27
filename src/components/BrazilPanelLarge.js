@@ -38,7 +38,11 @@ const BrazilPanelLarge = () => {
   return (
     <div>
       <Paper elevation={3} className={classes.paper}>
-        <Typography className={classes.header} variant="h6">
+        <Typography
+          data-testid="brazil-panel-large-title"
+          className={classes.header}
+          variant="h6"
+        >
           Brasil
         </Typography>
         <Grid
@@ -50,7 +54,11 @@ const BrazilPanelLarge = () => {
           <Grid xs item container direction="column">
             <Grid item container>
               <Icon>done</Icon>
-              <Typography variant="overline" gutterBottom>
+              <Typography
+                data-testid="brazil-panel-large-cases"
+                variant="overline"
+                gutterBottom
+              >
                 Número de casos
               </Typography>
             </Grid>
@@ -63,7 +71,11 @@ const BrazilPanelLarge = () => {
               <Grid xs item container direction="column">
                 <Grid item container>
                   <Icon>person_remove</Icon>
-                  <Typography variant="overline" gutterBottom>
+                  <Typography
+                    data-testid="brazil-panel-large-deaths"
+                    variant="overline"
+                    gutterBottom
+                  >
                     Óbitos Confirmados
                   </Typography>
                 </Grid>
@@ -78,7 +90,11 @@ const BrazilPanelLarge = () => {
               <Grid xs item container direction="column">
                 <Grid container>
                   <Icon>healing</Icon>
-                  <Typography variant="overline" gutterBottom>
+                  <Typography
+                    data-testid="brazil-panel-large-recovered"
+                    variant="overline"
+                    gutterBottom
+                  >
                     Casos Curados
                   </Typography>
                 </Grid>
@@ -86,6 +102,7 @@ const BrazilPanelLarge = () => {
                   className={classes.number}
                   variant="body1"
                   gutterBottom
+                  data-testid="brazil-panel-large-recovered-number"
                 >
                   {loaded ? data.recovered : <Skeleton />}
                 </Typography>

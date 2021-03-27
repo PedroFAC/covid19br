@@ -54,16 +54,12 @@ const CountriesPanel = () => {
 
   return (
     <div>
-      <Paper elevation={3}>
-        {loaded ? (
-          <Tabela data={data} columns={colunas} title="Países Afetados" />
-        ) : (
-          <Tabela
-            data={emptyState()}
-            columns={emptyColumns}
-            title="Países Afetados"
-          />
-        )}
+      <Paper elevation={3} data-testid="countries-panel-table">
+        <Tabela
+          data={loaded ? data : emptyState()}
+          columns={loaded ? colunas : emptyColumns}
+          title="Países Afetados"
+        />
       </Paper>
     </div>
   );

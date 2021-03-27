@@ -50,7 +50,7 @@ const StatesPanelLarge = () => {
   }, []);
   return (
     <div>
-      <Paper elevation={3}>
+      <Paper data-testid="states-panel-large-table" elevation={3}>
         <Tabela
           data={loaded ? data : emptyState()}
           columns={loaded ? colunas : emptyColumns}

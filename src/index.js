@@ -5,7 +5,7 @@ import App from './App';
 import { makeServer } from './service/mock';
 
 if (process.env.NODE_ENV === 'test') {
-  makeServer('test');
+  makeServer();
 }
 
 ReactDOM.render(

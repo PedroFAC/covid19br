@@ -7,11 +7,19 @@ const TopBar = () => {
   return (
     <AppBar position="static">
       <Toolbar>
-        <Typography>COVID-19 Brasil</Typography>
-        <Button onClick={() => history.push('/dashboard')} color="inherit">
+        <Typography data-testid="top-bar-title">COVID-19 Brasil</Typography>
+        <Button
+          data-testid="top-bar-general-button"
+          onClick={() => history.push('/dashboard')}
+          color="inherit"
+        >
           Geral
         </Button>
-        <Button onClick={() => history.push('/brazil')} color="inherit">
+        <Button
+          data-testid="top-bar-brazil-button"
+          onClick={() => history.push('/brazil')}
+          color="inherit"
+        >
           Brasil
         </Button>
       </Toolbar>

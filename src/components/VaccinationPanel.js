@@ -52,16 +52,12 @@ const VaccinationPanel = () => {
 
   return (
     <div>
-      <Paper elevation={3}>
-        {loaded ? (
-          <Tabela data={data} columns={colunas} title="Vacinação" />
-        ) : (
-          <Tabela
-            data={emptyState()}
-            columns={emptyColumns}
-            title="Vacinação"
-          />
-        )}
+      <Paper data-testid="vaccination-panel-table" elevation={3}>
+        <Tabela
+          data={loaded ? data : emptyState()}
+          columns={loaded ? colunas : emptyColumns}
+          title="Vacinação"
+        />
       </Paper>
     </div>
   );

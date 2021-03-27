@@ -6,10 +6,10 @@ const mockStates = Array(27)
     return {
       uf: faker.address.stateAbbr(),
       state: faker.address.stateAbbr(),
-      cases: faker.random.number(),
-      deaths: faker.random.number(),
-      suspects: faker.random.number(),
-      refuses: faker.random.number(),
+      cases: faker.datatype.number(),
+      deaths: faker.datatype.number(),
+      suspects: faker.datatype.number(),
+      refuses: faker.datatype.number(),
     };
   });
 
