@@ -4,17 +4,14 @@ import { Paper } from '@material-ui/core';
 import api from '../service/api';
 import { Link } from 'react-router-dom';
 import Skeleton from '@material-ui/lab/Skeleton';
+import { arrayGenerator } from '../functions/arrayGenerator';
 
 const StatesPanelLarge = () => {
   const [data, setData] = useState([]);
   const [loaded, setLoaded] = useState(false);
 
   const emptyState = () => {
-    let array = [];
-    for (let i = 0; i < 5; i++) {
-      array.push({ state: '', cases: '', deaths: '' });
-    }
-    return array;
+    return arrayGenerator(5).map(() => ({ state: '', cases: '', deaths: '' }));
   };
 
   const emptyColumns = [

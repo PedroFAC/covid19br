@@ -14,16 +14,13 @@ import api from '../service/api';
 import { useHistory } from 'react-router-dom';
 import Skeleton from '@material-ui/lab/Skeleton';
 import common from '../styles/common';
+import { arrayGenerator } from '../functions/arrayGenerator';
 
 const StatesPanel = () => {
   const [data, setData] = useState([]);
   const [loaded, setLoaded] = useState(false);
   const emptyState = () => {
-    let array = [];
-    for (let i = 0; i < 5; i++) {
-      array.push('');
-    }
-    return array;
+    return arrayGenerator(5).map(() => '');
   };
 
   useEffect(() => {

@@ -3,6 +3,7 @@ import { Tabela } from './';
 import { Paper } from '@material-ui/core';
 import Skeleton from '@material-ui/lab/Skeleton';
 import faker from 'faker';
+import { arrayGenerator } from '../functions/arrayGenerator';
 
 const VaccinationPanel = () => {
   const [data, setData] = useState([]);
@@ -17,11 +18,7 @@ const VaccinationPanel = () => {
   ];
 
   const emptyState = () => {
-    let array = [];
-    for (let i = 0; i < 5; i++) {
-      array.push({ state: '', cases: '' });
-    }
-    return array;
+    return arrayGenerator(5).map(() => ({ state: '', cases: '' }));
   };
   const emptyColumns = [
     { title: 'País', field: 'country', render: () => <Skeleton /> },
@@ -33,15 +30,10 @@ const VaccinationPanel = () => {
   ];
 
   const getRandomCountries = () => {
-    const newArray = Array(192)
-      .fill(0)
-      .map(() => {
-        return {
-          country: faker.address.country(),
-          cases: faker.random.number(),
-        };
-      });
-    console.log(newArray);
+    const newArray = arrayGenerator(192).map(() => ({
+      country: faker.address.country(),
+      cases: faker.random.number(),
+    }));
     setData(newArray);
     setLoaded(true);
   };
