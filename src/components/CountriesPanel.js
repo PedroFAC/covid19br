@@ -4,6 +4,7 @@ import { Paper } from '@material-ui/core';
 import api from '../service/api';
 import { Link } from 'react-router-dom';
 import Skeleton from '@material-ui/lab/Skeleton';
+import { arrayGenerator } from '../functions/arrayGenerator';
 
 const CountriesPanel = () => {
   const [data, setData] = useState([]);
@@ -26,12 +27,9 @@ const CountriesPanel = () => {
   ];
 
   const emptyState = () => {
-    let array = [];
-    for (let i = 0; i < 5; i++) {
-      array.push({ state: '', cases: '', deaths: '' });
-    }
-    return array;
+    return arrayGenerator(5).map(() => ({ state: '', cases: '', deaths: '' }));
   };
+
   const emptyColumns = [
     { title: 'País', field: 'state', render: () => <Skeleton /> },
     {
@@ -48,23 +46,18 @@ const CountriesPanel = () => {
       const { data } = response.data;
       setData(data);
       setLoaded(true);
-      console.log(data);
     };
     fetchCountries();
-  }, [data]);
+  }, []);
 
   return (
     <div>
-      <Paper elevation={3}>
-        {loaded ? (
-          <Tabela data={data} columns={colunas} title="Países Afetados" />
-        ) : (
-          <Tabela
-            data={emptyState()}
-            columns={emptyColumns}
-            title="Países Afetados"
-          />
-        )}
+      <Paper elevation={3} data-testid="countries-panel-table">
+        <Tabela
+          data={loaded ? data : emptyState()}
+          columns={loaded ? colunas : emptyColumns}
+          title="Países Afetados"
+        />
       </Paper>
     </div>
   );

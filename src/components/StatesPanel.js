@@ -14,16 +14,13 @@ import api from '../service/api';
 import { useHistory } from 'react-router-dom';
 import Skeleton from '@material-ui/lab/Skeleton';
 import common from '../styles/common';
+import { arrayGenerator } from '../functions/arrayGenerator';
 
 const StatesPanel = () => {
   const [data, setData] = useState([]);
   const [loaded, setLoaded] = useState(false);
   const emptyState = () => {
-    let array = [];
-    for (let i = 0; i < 5; i++) {
-      array.push('');
-    }
-    return array;
+    return arrayGenerator(5).map(() => '');
   };
 
   useEffect(() => {
@@ -32,7 +29,6 @@ const StatesPanel = () => {
       const { data } = response;
       setData(data);
       setLoaded(true);
-      console.log(data);
     };
     fetchStates();
   }, []);
@@ -51,25 +47,34 @@ const StatesPanel = () => {
         <Grid container direction="column">
           <Grid item>
             <TableContainer>
-              <Table>
+              <Table data-testid="states-panel-table">
                 <TableHead>
                   <TableRow>
-                    <TableCell>Estado</TableCell>
-                    <TableCell align="right">Casos Confirmados</TableCell>
-                    <TableCell align="right">Mortes</TableCell>
+                    <TableCell data-testid="states-panel-state">
+                      Estado
+                    </TableCell>
+                    <TableCell
+                      data-testid="states-panel-confirmed"
+                      align="right"
+                    >
+                      Casos Confirmados
+                    </TableCell>
+                    <TableCell data-testid="states-panel-deaths" align="right">
+                      Mortes
+                    </TableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
                   {loaded
-                    ? data.data.slice(0, 5).map((row) => (
-                        <TableRow>
+                    ? data.data.slice(0, 5).map((row, index) => (
+                        <TableRow key={index}>
                           <TableCell>{row.state}</TableCell>
                           <TableCell align="right">{row.cases}</TableCell>
                           <TableCell align="right">{row.deaths}</TableCell>
                         </TableRow>
                       ))
-                    : emptyState().map((row) => (
-                        <TableRow>
+                    : emptyState().map((_, index) => (
+                        <TableRow key={index}>
                           <TableCell>
                             <Skeleton />
                           </TableCell>

@@ -18,7 +18,9 @@ const SharePaper = () => {
     <div>
       <Grid className={classes.share} container direction="column" spacing={1}>
         <Grid item>
-          <Typography variant="subtitle">Compartilhe:</Typography>
+          <Typography data-testid="share-paper-subtitle" variant="subtitle1">
+            Compartilhe:
+          </Typography>
         </Grid>
         <Grid
           className={classes.share}
@@ -28,17 +30,29 @@ const SharePaper = () => {
           spacing={1}
         >
           <Grid item>
-            <FacebookShareButton url={url} quote={title}>
+            <FacebookShareButton
+              data-testid="share-paper-facebook"
+              url={url}
+              quote={title}
+            >
               <FacebookIcon size={48} round />
             </FacebookShareButton>
           </Grid>
           <Grid item>
-            <TwitterShareButton url={url} title={title}>
+            <TwitterShareButton
+              data-testid="share-paper-twitter"
+              url={url}
+              title={title}
+            >
               <TwitterIcon size={48} round />
             </TwitterShareButton>
           </Grid>
           <Grid item>
-            <WhatsappShareButton url={url} title={title}>
+            <WhatsappShareButton
+              data-testid="share-paper-whatsapp"
+              url={url}
+              title={title}
+            >
               <WhatsappIcon size={48} round />
             </WhatsappShareButton>
           </Grid>

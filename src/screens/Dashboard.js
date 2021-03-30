@@ -7,6 +7,7 @@ import {
   SharePaper,
 } from '../components';
 import common from '../styles/common';
+import VaccinationPanel from '../components/VaccinationPanel';
 
 const Dashboard = () => {
   const classes = common();
@@ -31,6 +32,7 @@ const Dashboard = () => {
           </Grid>
           <Grid xs item className={classes.gridRight}>
             <CountriesPanel />
+            <VaccinationPanel />
           </Grid>
         </Grid>
         <SharePaper />
