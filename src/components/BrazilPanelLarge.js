@@ -62,7 +62,12 @@ const BrazilPanelLarge = () => {
                 Número de casos
               </Typography>
             </Grid>
-            <Typography className={classes.number} variant="body1" gutterBottom>
+            <Typography
+              data-testid={loaded ? 'brazil-panel-large-cases-value' : ''}
+              className={classes.number}
+              variant="body1"
+              gutterBottom
+            >
               {loaded ? data.confirmed : <Skeleton />}
             </Typography>
           </Grid>
@@ -80,6 +85,7 @@ const BrazilPanelLarge = () => {
                   </Typography>
                 </Grid>
                 <Typography
+                  data-testid={loaded ? 'brazil-panel-large-deaths-value' : ''}
                   className={classes.number}
                   variant="body1"
                   gutterBottom
@@ -99,10 +105,12 @@ const BrazilPanelLarge = () => {
                   </Typography>
                 </Grid>
                 <Typography
+                  data-testid={
+                    loaded ? 'brazil-panel-large-recovered-value' : ''
+                  }
                   className={classes.number}
                   variant="body1"
                   gutterBottom
-                  data-testid="brazil-panel-large-recovered-number"
                 >
                   {loaded ? data.recovered : <Skeleton />}
                 </Typography>

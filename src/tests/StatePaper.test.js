@@ -8,6 +8,7 @@ describe('Testing StatePaper Component', () => {
   let server;
   beforeEach(() => {
     server = makeServer();
+    server.logging = false;
     render(<StatePaper uf="CE" />);
   });
 
@@ -28,5 +29,25 @@ describe('Testing StatePaper Component', () => {
     expect(refuses).toBeInTheDocument();
     expect(deaths).toBeInTheDocument();
     expect(lethality).toBeInTheDocument();
+  });
+
+  it('Should do fetching correctly', async () => {
+    const stateName = await screen.findByText('Ceará');
+    const confirmedValue = await screen.findByTestId(
+      'state-paper-confirmed-value'
+    );
+    const suspectsValue = await screen.findByTestId(
+      'state-paper-suspects-value'
+    );
+    const refusesValue = await screen.findByTestId('state-paper-refuses-value');
+    const deathsValue = await screen.findByTestId('state-paper-deaths-value');
+
+    await waitFor(() => {
+      expect(stateName).toBeInTheDocument();
+      expect(confirmedValue).toBeInTheDocument();
+      expect(suspectsValue).toBeInTheDocument();
+      expect(refusesValue).toBeInTheDocument();
+      expect(deathsValue).toBeInTheDocument();
+    });
   });
 });

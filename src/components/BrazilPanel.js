@@ -49,7 +49,12 @@ const BrazilPanel = () => {
                 Número de casos
               </Typography>
             </Grid>
-            <Typography className={classes.number} variant="body1" gutterBottom>
+            <Typography
+              data-testid={loaded ? 'brazil-panel-cases-value' : ''}
+              className={classes.number}
+              variant="body1"
+              gutterBottom
+            >
               {loaded ? data.confirmed : <Skeleton />}
             </Typography>
           </Grid>
@@ -67,6 +72,7 @@ const BrazilPanel = () => {
                   </Typography>
                 </Grid>
                 <Typography
+                  data-testid={loaded ? 'brazil-panel-deaths-value' : ''}
                   className={classes.number}
                   variant="body1"
                   gutterBottom
@@ -86,6 +92,7 @@ const BrazilPanel = () => {
                   </Typography>
                 </Grid>
                 <Typography
+                  data-testid={loaded ? 'brazil-panel-recovered-value' : ''}
                   className={classes.number}
                   variant="body1"
                   gutterBottom

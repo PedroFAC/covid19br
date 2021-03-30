@@ -37,7 +37,10 @@ const StatePaper = ({ uf }) => {
   return (
     <div>
       <Paper elevation={3} className={classes.paper}>
-        <Typography data-testid="state-paper-title" variant="h3">
+        <Typography
+          data-testid={loaded ? 'state-paper-title' : ''}
+          variant="h3"
+        >
           {loaded ? data.state : <Skeleton />}
         </Typography>
         <Grid container direction="column">
@@ -54,6 +57,7 @@ const StatePaper = ({ uf }) => {
                 </Typography>
               </Grid>
               <Typography
+                data-testid={loaded ? 'state-paper-confirmed-value' : ''}
                 className={classes.number}
                 variant="body1"
                 gutterBottom
@@ -73,6 +77,7 @@ const StatePaper = ({ uf }) => {
                 </Typography>
               </Grid>
               <Typography
+                data-testid={loaded ? 'state-paper-suspects-value' : ''}
                 className={classes.number}
                 variant="body1"
                 gutterBottom
@@ -92,6 +97,7 @@ const StatePaper = ({ uf }) => {
                 </Typography>
               </Grid>
               <Typography
+                data-testid={loaded ? 'state-paper-refuses-value' : ''}
                 className={classes.number}
                 variant="body1"
                 gutterBottom
@@ -111,6 +117,7 @@ const StatePaper = ({ uf }) => {
                 </Typography>
               </Grid>
               <Typography
+                data-testid={loaded ? 'state-paper-deaths-value' : ''}
                 className={classes.number}
                 variant="body1"
                 gutterBottom
