@@ -1,20 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { Grid, Paper, Typography, Icon } from '@material-ui/core';
 import Skeleton from '@material-ui/lab/Skeleton';
-import api from '../service/api';
 import common from '../styles/common';
 import dateParse from '../functions/dateParse';
 
-const BrazilPanel = () => {
+const BrazilPanel = (props) => {
   const [data, setData] = useState([]);
   const [loaded, setLoaded] = useState(false);
   const date = dateParse(data.updated_at);
   const classes = common();
+
   useEffect(() => {
     const fetchCountry = async () => {
-      const response = await api.get('/brazil');
-      const { data } = response.data;
-      setData(data);
+      const loadedContent = await props.loadContent(props.country);
+      setData(loadedContent.data);
       setLoaded(true);
     };
     fetchCountry();

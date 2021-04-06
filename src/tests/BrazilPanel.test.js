@@ -6,10 +6,26 @@ import { makeServer } from '../service/mock';
 
 describe('Testing BrazilPanel Component', () => {
   let server;
+
+  const dummyData = {
+    data: {
+      country: 'Brazil',
+      cases: 1275291,
+      confirmed: 13013601,
+      deaths: 332752,
+      recovered: 11405558,
+      updated_at: '2021-04-06T03:20:48.000Z',
+    },
+  };
+
+  const mockLoadContent = async () => {
+    return dummyData;
+  };
+
   beforeEach(() => {
     server = makeServer();
     server.logging = false;
-    render(<BrazilPanel />);
+    render(<BrazilPanel loadContent={mockLoadContent} country="/brazil" />);
   });
 
   afterEach(() => {
@@ -38,6 +54,22 @@ describe('Testing BrazilPanel Component', () => {
       expect(casesValue).toBeInTheDocument();
       expect(deathsValue).toBeInTheDocument();
       expect(recoveredValue).toBeInTheDocument();
+    });
+  });
+
+  it('Should render correct data at their places', async () => {
+    const casesValue = await screen.findByTestId('brazil-panel-cases-value');
+    const deathsValue = await screen.findByTestId('brazil-panel-deaths-value');
+    const recoveredValue = await screen.findByTestId(
+      'brazil-panel-recovered-value'
+    );
+
+    await waitFor(() => {
+      expect(casesValue).toHaveTextContent(dummyData.data.confirmed.toString()); // Must be 'dummmyData.cases'?
+      expect(deathsValue).toHaveTextContent(dummyData.data.deaths.toString());
+      expect(recoveredValue).toHaveTextContent(
+        dummyData.data.recovered.toString()
+      );
     });
   });
 });
