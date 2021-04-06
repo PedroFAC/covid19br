@@ -13,7 +13,7 @@ const BrazilPanel = (props) => {
   useEffect(() => {
     const fetchCountry = async () => {
       const loadedContent = await props.loadContent(props.country);
-      setData(loadedContent);
+      setData(loadedContent.data);
       setLoaded(true);
     };
     fetchCountry();
