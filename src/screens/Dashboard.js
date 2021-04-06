@@ -8,6 +8,7 @@ import {
 } from '../components';
 import common from '../styles/common';
 import VaccinationPanel from '../components/VaccinationPanel';
+import { brazilResume, DashboardService } from '../service/DashboardService';
 
 const Dashboard = () => {
   const classes = common();
@@ -24,7 +25,10 @@ const Dashboard = () => {
             spacing={2}
           >
             <Grid xs item>
-              <BrazilPanel />
+              <BrazilPanel
+                loadContent={DashboardService.resumeFrom}
+                country="/brazil"
+              />
             </Grid>
             <Grid xs item>
               <StatesPanel />
